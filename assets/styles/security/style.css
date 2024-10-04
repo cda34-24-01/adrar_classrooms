@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+body{
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    flex-direction: row;
+    justify-content: flex-end;
+    font-family: inter;
+}
+
+form{
+    padding: 3em;
+    background-color: black;
+    color: white;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+input{
+    background-color: black;
+    color: white;
+    height: 2em;
+    border: 1px solid white;
+    padding: 0.5em;
+    margin-top: 0.2em;
+}
+label{
+    margin-top: 0.5em;
+}
+
+
+.pubStagiaire{
+    padding: 1em;
+    background-color: #8CC04D;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+}
+#quote{
+    width: 50%;
+    font-size: 2em;
+    font-weight: 400;
+    text-align: justify;
+}
+#auteur{
+width: 50%;
+font-size: 1em;
+font-weight: 400;
+}
