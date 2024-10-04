@@ -151,12 +151,48 @@ class CoursController extends AbstractController
             }
         }
 
+        $chapters = [
+            [
+                'id' => 1,
+                'title' => 'Introduction',
+                'description' => 'This chapter covers the basics of Java programming.',
+                'content' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin id viverra lacus. Pellentesque vitae elit pharetra, aliquet nibh non, varius sapien. Nullam ac purus a metus laoreet scelerisque. Fusce ullamcorper ornare ligula, vitae bibendum felis auctor nec. Donec vestibulum, lorem eu venenatis egestas, nulla libero maximus risus, eget sollicitudin felis arcu eu erat. Aliquam erat volutpat. Fusce ac lorem sed leo elementum placerat. Fusce feugiat, elit eget ornare fringilla, nisl mi sodales risus, sed volutpat nibh elit eget nunc. Sed sed metus dictum, rhoncus ipsum vulputate, tempus nisl. 
+Donec pulvinar aliquam turpis ac varius. Donec posuere quis augue non interdum. Maecenas vehicula sapien nulla, placerat congue tortor consequat et. Proin tincidunt quam ac eleifend rutrum. Donec vel aliquet ligula, ac interdum purus. Nam sem tellus, accumsan nec vehicula at, feugiat vitae orci. Quisque porttitor nunc nisl, in ultricies velit condimentum ac.',
+                'validated' => true,
+            ],
+            [
+                'id' => 2,
+                'title' => 'Advanced Topics',
+                'description' => 'This chapter covers more advanced topics in Java programming.',
+                'content' => 'lorem ipsum',
+                'validated' => false,
+            ],
+            [
+                'id' => 3,
+                'title' => 'Practical Examples',
+                'description' => 'This chapter provides practical examples of Java programming.',
+                'content' => 'lorem ipsum',
+                'validated' => false,
+            ],
+            [
+                'id' => 4,
+                'title' => 'Conclusion',
+                'description' => 'This chapter concludes the Java programming course.',
+                'content' => 'lorem ipsum',
+                'validated' => false,
+            ],
+        ];
+
+        $currentChapter = $chapters[0];
+
         if (!$selectedCourse) {
             throw $this->createNotFoundException('Course not found.');
         }
 
         return $this->render('cours/show.html.twig', [
             'course' => $selectedCourse,
+            'chapters' => $chapters,
+            'currentChapter' => $currentChapter
         ]);
     }
 }
