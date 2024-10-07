@@ -29,7 +29,15 @@
         <button class="btn btn-lg btn-primary" type="submit" id="connexion">
             Se connecter
         </button>
-        <p>Si vous n'avez pas de compte, vous pouvez vous <a href="{{ path('app_register') }}">Inscrire</a></p>
+        <p class="inscription">Si vous n'avez pas de compte, vous pouvez vous <a href="{{ path('app_register') }}">Inscrire</a></p>
+        <div class="divider">
+            <div><hr></div>
+            <p>ou continuer avec</p>
+            <div>
+                <hr>
+            </div>
+        </div>
+        <img src="{{asset('imgs/google-logo.png')}}" alt="google_logo">
     </form>
     {% if app.user %}
         <div class="mb-3" id="alreadyConnected">
