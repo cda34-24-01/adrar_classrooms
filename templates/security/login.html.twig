@@ -1,8 +1,9 @@
 {% extends 'base.html.twig' %}
-{% block stylesheets %}
-    <link rel="stylesheet" href="{{ asset('styles/security/style.css') }}">
-{% endblock %}
 {% block title %}Connexion{% endblock %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ asset('styles/security/login.css') }}">
+{% endblock %}
 
 {% block body %}
 <div id="formulaire">
@@ -10,13 +11,13 @@
         <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
     {% endif %}
     
-    <img src="{{asset('imgs/adrar-classrooms-logo-text.png')}}" alt="Logo d'adrar classrooms">
+    <img src="{{asset('imgs/adrar-classrooms-logo-green.png')}}" alt="Logo d'adrar classrooms">
     <form method="post">
         <h2 class="h3 mb-3 font-weight-normal">Bienvenue</h2>
         <label for="inputEmail">E-mail</label>
         <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
         <label for="inputPassword">Mot de passe</label>
-        <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+        <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="off" required>
     
         <input type="hidden" name="_csrf_token"
                value="{{ csrf_token('authenticate') }}"
@@ -49,3 +50,5 @@
     <img src="{{asset('imgs/portrait-connexion.png')}}" alt="">
 </div>
 {% endblock %}
+
+{% block javascripts %}{% endblock %}

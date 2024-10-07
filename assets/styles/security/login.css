@@ -1,5 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
+:root{
+    --color: #8CC04D;
+    --color-dark: #72a139;
+    --color-light:#b1d486;
+}
+
+
 body {
     display: flex;
     width: 100vw;
@@ -25,6 +32,7 @@ body {
     margin-top: 2em;
 }
 h2{
+    color: var(--color);
     font-size: 2em;
 }
 
@@ -72,19 +80,23 @@ label {
 
 #connexion {
     /* padding: 0.5em 0em; */
-    background-color: #5584AC;
+    background-color: var(--color);
     height: 2em;
-    width: 100%;
+    width: 40%;
     font-size: large;
-    border: 2px #5584AC solid;
+    border: 2px var(--color) solid;
     border-radius: 5px;
-    color: white;
+    color: black;
     margin: 1em 0em;
+}
+#connexion:hover{
+    background-color: var(--color-dark);
+    border: 2px var(--color-dark) solid;
 }
 
 
 .pubStagiaire {
-    background-color: #8CC04D;
+    background-color: var(--color);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -111,13 +123,13 @@ label {
 }
 
 a{
-    color: white;
+    color: var(--color-light);
 }
 a:hover{
     opacity: 0.8;
 }
 a:visited{
-    color: rgb(215, 212, 255);
+    color: var(--color-light);
 }
 
 #alreadyConnected{
