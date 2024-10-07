@@ -75,10 +75,23 @@ input {
     background-color: black;
     color: white;
     height: 2em;
-    border: 1px solid white;
+    border: 2px solid white;
+    border-radius: 10px;
+    text-align: center;
     padding: 0.5em 0em;
     margin-top: 0.2em;
     width: 400px;
+    font-family: inter;
+    font-style: italic;
+    /* font-size: 1.1em; */
+    /* font-weight: bold; */
+}
+
+input:focus{
+    border: 2px solid var(--color-light);
+    outline: var(--color-light);
+    color: var(--color-light);
+    font-style: normal;
 }
 
 div:has(+button){
@@ -90,6 +103,7 @@ div:has(+button){
 #registration_form_agreeTerms{
     width: auto;
     margin: 0px 0.5em 0px 0px;
+    accent-color: var(--color);
 }
 
 button{
