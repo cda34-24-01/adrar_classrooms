@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
-body{
+body {
     display: flex;
     width: 100vw;
     height: 100vh;
@@ -9,44 +9,117 @@ body{
     font-family: inter;
 }
 
-form{
+#formulaire {
     padding: 3em;
     background-color: black;
     color: white;
     width: 50%;
-    display: flex;
-    flex-direction: column;
-}
-input{
-    background-color: black;
-    color: white;
-    height: 2em;
-    border: 1px solid white;
-    padding: 0.5em;
-    margin-top: 0.2em;
-}
-label{
-    margin-top: 0.5em;
-}
-
-
-.pubStagiaire{
-    padding: 1em;
-    background-color: #8CC04D;
+    height: 100%;
+    padding: 0px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 50%;
 }
-#quote{
-    width: 50%;
+#formulaire img{
+    margin-top: 2em;
+}
+h2{
     font-size: 2em;
+}
+
+form {
+    height: 100%;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+input {
+    background-color: black;
+    color: white;
+    height: 2em;
+    border: 1px solid white;
+    padding: 0.5em 0em;
+    margin-top: 0.5em;
+}
+#inputEmail, #inputPassword{
+    width: 100%;
+}
+
+label {
+    margin-top: 0.7em;
+    align-self: flex-start;
+}
+
+.checkbox{
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+    width: 100%;
+}
+.checkbox button{
+    width: 50px;
+    margin: 0px;
+}
+
+.checkbox label{
+    margin-left: 0.5em;
+    width: 100%;
+}
+
+#connexion {
+    /* padding: 0.5em 0em; */
+    background-color: #5584AC;
+    height: 2em;
+    width: 100%;
+    font-size: large;
+    border: 2px #5584AC solid;
+    border-radius: 5px;
+    color: white;
+    margin: 1em 0em;
+}
+
+
+.pubStagiaire {
+    background-color: #8CC04D;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    /* justify-content: flex-end; */
+    width: 50%;
+    overflow: hidden;
+}
+
+.texte {
+    margin-top: 15%;
+    width: 70%;
     font-weight: 400;
+    line-height: 36px;
+}
+
+#quote {
+    font-size: 30px;
     text-align: justify;
 }
-#auteur{
-width: 50%;
-font-size: 1em;
-font-weight: 400;
+
+#auteur {
+    font-size: 20px;
+}
+
+a{
+    color: white;
+}
+a:hover{
+    opacity: 0.8;
+}
+a:visited{
+    color: rgb(215, 212, 255);
+}
+
+#alreadyConnected{
+    margin-bottom: 0.5em;
 }
