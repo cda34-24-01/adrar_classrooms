@@ -1,127 +1,61 @@
 {% extends 'base.html.twig' %}
 
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('styles/formations/formations_styles.css') }}"/>
+{% endblock %}
+
 {% block title %}
-  Adrar Classrooms | Courses
+    Adrar Classrooms | Formations
 {% endblock %}
 
 {% block body %}
-  <style>
-    .main-container {
-      max-width: 1000px;
-      margin: 0 auto;
-      color: white;
+    <script>
+    const redirectToCoursePage = (card) => {
+        const courseId = card.getAttribute('data-id');
+        const url = `/cours/${courseId}`;
+        window.location.href = url;
     }
-    .courses-select-container {
-      display: flex;
-      align-items: flex-end;
-      width: 100%;
-      height: 10em;
-      margin: 1em auto;
-    }
-    .courses-select-container select {
-        padding: 1em;
-        background-color: black;
-        color: white;
-    }
-    .courses-container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      width: 100%;
-      min-height: 100vh;
-    }
-    .course-card {
-      background-color: black;
-      display: flex;
-      color: white;
-      width: 100%;
-      height: 10em;
-      margin: 1em auto;
-      padding: 2rem;
-      cursor: pointer;
-        text-decoration: none;
-    }
-    .course-card:hover {
-        scale: 1.02;
-        transition: all 0.5s ease-in-out;
-        filter: opacity(0.9);
-    }
-    .image-course-container {
-      height: 10em;
-      aspect-ratio: 3/2;
-      margin-right: 2em;
-      display: flex;
-      justify-content: center;
-    }
-    .image-course-container img {
-      height: 100%;
-    }
-    .info-course-container {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      align-items: flex-start;
-    }
-    .info-course-container h1 {
-      margin: 0;
-    }
-    .header-course-container {
-      display: flex;
-      gap: 1em;
-      align-items: end;
-      margin: 0;
-    }
-    .header-course-container p {
-      margin: 0;
-      font-size: 1em;
-      font-weight: bold;
-    }
-  </style>
-  <script>
-  const redirectToCoursePage = (card) => {
-    const courseId = card.getAttribute('data-id');
-    const url = `/cours/${courseId}`;
-    window.location.href = url;
-  }
-</script>
+    </script>
 
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <main class="main-container Inter">
 
-  <main class="main-container">
-    <div class="courses-select-container">
-      <form method="get" action="{{ path('app_cours') }}">
-        <h1>Cours :</h1>
-        <select name="language" onchange="this.form.submit()">
-            <option value="">All Languages</option>
-            {% for language in languages %}
-                <option value="{{ language }}" {% if selected_language == language %}selected{% endif %}>{{ language }}</option>
+        <div class="courses-select-container Inter">
+            <form method="get" action="{{ path('app_cours') }}">
+                <h1>Cours :</h1>
+                <select name="language" onchange="this.form.submit()">
+                    <option value="">Langages</option>
+                    {% for language in languages %}
+                        <option value="{{ language }}" {% if selected_language == language %}selected{% endif %}>{{ language }}</option>
+                    {% endfor %}
+                </select>
+            </form>
+        </div>
+
+        <div class="courses-container Inter">
+            {% for course in courses %}
+                <a class="course-card" href="/cours/{{ course.id}}">
+                    <div class="image-course-container">
+                        <img src="{{ course.image ? course.image : 'https://static1.smartbear.co/smartbearbrand/media/images/blog/what%E2%80%99s-the-best-programming-language-to-learn-first.png?ext=.png' }}" alt="{{ course.title }}" />
+                    </div>
+
+                    <div class="info-course-container">
+                        <h1>{{ course.title }}</h1>
+
+                        <div class="header-course-container">
+                            <span class="material-symbols-outlined">signal_cellular_alt</span>
+                            <p>{{ course.level }}</p>
+                            <span class="material-symbols-outlined">schedule</span>
+                            <p>{{ course.estimated_time }}</p>
+                            <span class="material-symbols-outlined">stairs</span>
+                            <p>{{ course.chapters|length }}</p>
+                        </div>
+
+                        <div class="description-course-container">
+                            <p>{{ course.description }}</p>
+                        </div>
+                    </div>
+                </a>
             {% endfor %}
-        </select>
-    </form>
-    </div>
-
-    <div class="courses-container">
-      {% for course in courses %}
-        <a class="course-card" href="/cours/{{ course.id}}">
-          <div class="image-course-container">
-            <img src="{{ course.image ? course.image : 'https://static1.smartbear.co/smartbearbrand/media/images/blog/what%E2%80%99s-the-best-programming-language-to-learn-first.png?ext=.png' }}" alt="{{ course.title }}" />
-            </div>
-          <div class="info-course-container">
-            <h1>{{ course.title }}</h1>
-            <div class="header-course-container">
-              <span class="material-symbols-outlined">signal_cellular_alt</span>
-              <p>{{ course.level }}</p>
-              <span class="material-symbols-outlined">schedule</span>
-              <p>{{ course.estimated_time }}</p>
-              <span class="material-symbols-outlined">stairs</span>
-              <p>{{ course.chapters|length }}</p>
-            </div>
-            <div class="description-course-container">
-              <p>{{ course.description }}</p>
-            </div>
-          </div>
-        </a>
-      {% endfor %}
-    </div>
-  </main>
+        </div>
+    </main>
 {% endblock %}

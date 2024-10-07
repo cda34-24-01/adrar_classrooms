@@ -116,8 +116,6 @@ class CoursController extends AbstractController
 
     #[Route('/cours', name: 'app_cours')]
     public function index(Request $request): Response
-
-
     {
 
         $selected_language = $request->query->get('language');
