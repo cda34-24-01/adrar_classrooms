@@ -13,12 +13,12 @@
       position: relative;
     }
     .course-header {
-      height: 10em;
       background-color: #5584ac;
       padding: 10px;
       display: flex;
       justify-content: center;
       align-items: center;
+      padding: 30px 0;
     }
     .info-course-container {
       max-width: 1000px;
@@ -27,17 +27,15 @@
       flex-direction: column;
       justify-content: space-between;
       align-items: center;
-      gap: 1em;
     }
     .info-course-container h1 {
-      margin: 0;
     }
     .header-course-container {
       display: flex;
       justify-content: center;
-      gap: 1em;
       align-items: end;
       margin: 0;
+      gap: 1em;
     }
     .header-course-container p {
       margin: 0;
@@ -100,6 +98,19 @@
       color: #5584ac;
       background-color: white;
     }
+    .back-to-courses-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 2rem;
+      gap: 1em;
+    }
+    .back-to-courses-container a {
+      font-size: 1.2rem;
+      text-decoration: none;
+      color: black;
+      font-weight: 600;
+    }
   </style>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 
@@ -117,6 +128,9 @@
         </div>
         <div class="description-course-container">
           <p>{{ course.description }}</p>
+        </div>
+        <div class="back-to-courses-container">
+          <span class="material-symbols-outlined">arrow_back</span><a href="/cours">Retour à la liste des cours</a>
         </div>
       </div>
     </div>
