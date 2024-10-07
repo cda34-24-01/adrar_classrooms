@@ -123,21 +123,26 @@
     <div class="chapters-container">
       <span class="material-symbols-outlined">flag_circle</span>
       {% for chapter in chapters %}
-        <a class="chapter-item" style="{{ chapter.validated ? 'background-color: green' : 'background-color: red' }}"></a>
+        <a href="/cours/{{ course.id }}/{{ chapter.id }}" class="chapter-item" style="{{ chapter.validated ? 'background-color: green' : 'background-color: red' }}"></a>
       {% endfor %}
       <span class="material-symbols-outlined">brightness_5</span>
     </div>
     <div class="content-chapter-container">
-      <h1>{{ currentChapter.title }}</h1>
-      <p>{{ currentChapter.content }}</p>
+      <h1>{{ chapter.title }}</h1>
+      <p>{{ chapter.content }}</p>
     </div>
     <div class="container-bottons-chapter">
       <div class="validation-chapter-container">
         <button>Je valide ce chapitre et passe au suivant</button>
       </div>
       <div class="navigation-chapter-container">
-        <button>Passer au chapitre précédent</button>
-        <button>Passer au chapitre suivant</button>
+        {% if previousChapter is not null %}
+          <button onclick="window.location.href = '/cours/{{ course.id }}/{{ previousChapter.id }}'">Passer au chapitre précédent</button>
+        {% endif %}
+
+        {% if nextChapter is not null %}
+          <button onclick="window.location.href = '/cours/{{ course.id }}/{{ nextChapter.id }}'">Passer au chapitre suivant</button>
+        {% endif %}
       </div>
     </div>
   </main>
