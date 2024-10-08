@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Cours
+{% endblock %}
+{% block body %}
+	<div class="chapters_progress">
+		<div class="chapter_header">
+			<div class="title">
+				<h1>Cours :
+					{{course.title}}</h1>
+			</div>
+		</div>
+		<div class="chapter_single">
+			{% for chapter in chapters %}
+				<div class="chapter_">
+					<a href="{{ path('app_chapter_show', {'id': chapter.id}) }}" data-turbo-frame="chapter_content_frame"></a>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+
+	<turbo-frame id="chapter_content_frame">
+		<div
+			class="chapter_content">
+			<!-- Le contenu du chapitre sera chargé ici -->
+			<p>Bienvenue dans le cours
+				{{course.title}}</p>
+		</div>
+	</turbo-frame>
+{% endblock %}

@@ -18,7 +18,7 @@ class ApiController extends AbstractController
     {
         // TODO: pour effectuer un appel sur l'API, il faut utiliser le client HTTP, pensez à changer l'URL et la méthode
         $response = $client->request('GET', 'https://api.github.com/repos/symfony/symfony-docs');
-     
+
         return $this->render('api/index.html.twig', [
             'response' => $response->toArray(),
         ]);
@@ -29,12 +29,12 @@ class ApiController extends AbstractController
     {
         // TODO: pour envoyer un email, il faut utiliser le MailerInterface, pensez à changer les informations
         $email = (new Email())
-            ->from('marceau@localhost')
-            ->to('marceaurodrigues@adrar-formation.fr')
+            ->from('noreply@localhost')
+            ->to('julie.barn9@gmail.com')
             ->subject('Time for Symfony Mailer!')
             ->text('Sending emails is fun again!')
             ->html('<p>See Twig integration for better HTML integration!</p>');
-        
+
         $mailer->send($email);
 
         return $this->render('api/email.html.twig', [
