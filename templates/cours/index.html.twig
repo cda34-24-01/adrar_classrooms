@@ -103,7 +103,7 @@
     <div class="courses-container">
       {% for course in courses %}
         <a class="course-card" href="/cours/{{ course.id }}/{{ course.chaptersIds[0] is defined ? course.chaptersIds[0] : 'noChapters' }}">
-          →<div class="image-course-container">
+          <div class="image-course-container">
             {# <img src="{{ course.image ? course.image : 'https://static1.smartbear.co/smartbearbrand/media/images/blog/what%E2%80%99s-the-best-programming-language-to-learn-first.png?ext=.png' }}" alt="{{ course.title }}" /> #}
           </div>
           <div class="info-course-container">
@@ -117,7 +117,7 @@
               <p>{{ course.chapter|length }}</p>
             </div>
             <div class="description-course-container">
-              {# <p>{{ course.description }}</p> #}
+              <p>{{ course.description }}</p>
             </div>
           </div>
         </a>

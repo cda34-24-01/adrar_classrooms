@@ -127,19 +127,21 @@
           <p>{{ course.chapter|length }}</p>
         </div>
         <div class="description-course-container">
-          {# <p>{{ course.description }}</p> #}
+          <p>{{ course.description }}</p>
         </div>
         <div class="back-to-courses-container">
           <span class="material-symbols-outlined">arrow_back</span><a href="/cours">Retour à la liste des cours</a>
         </div>
       </div>
     </div>
+
     {% if chapter is not null %}
+      {# ICI ON POURRAIT AFFICHER LES CHAPITRES AVEC UN TEMPLATE AU LIEU D'UTILISER MON CODE. #}
+
       <div class="chapters-container">
         <span class="material-symbols-outlined">flag_circle</span>
         {% for chapter in chapters %}
-          {# <a href="/cours/{{ course.id }}/{{ chapter.id }}" class="chapter-item" style="{{ chapter.validated ? 'background-color: green' : 'background-color: red' }}"></a> #}
-          <a href="/cours/{{ course.id }}/{{ chapter.id }}" class="chapter-item"></a>
+          <a href="/cours/{{ course.id }}/{{ chapter.id }}" class="chapter-item" style="{{ chapter.validated is defined and chapter.validated ? 'background-color: green' : 'background-color: red' }}"></a>
         {% endfor %}
         <span class="material-symbols-outlined">brightness_5</span>
       </div>
@@ -161,6 +163,7 @@
           {% endif %}
         </div>
       </div>
+      {# ISI FINIRAI LE TEMPLATE DE CHAPITRES #}
     {% else %}
       <span>Aucun chapitre</span>
     {% endif %}
