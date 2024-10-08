@@ -1,38 +1,33 @@
 .main-container {
+    /* height: auto;
     height: 92%;
-    width: 100%;
+    width: 100vw; */
+    grid-column: 1;
+    grid-row: 2;
 }
 
 .courses-select-container {
     display: flex;
     justify-content: center;
-    align-items: center;
     width: 100%;
     height: 10em;
     margin: 0;
+}
+
+.courses-select-container h1 {
+    color: white;
 }
 
 .courses-select-container select {
     padding: 1em;
     background-color: black;
     color: white;
+    border: solid 2px white;
 }
 
 .courses-select-container form {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: left;
-    width: 90%;
     height: 100%;
-}
-
-.courses-select-container h1 {
-    width: 100%;
-}
-
-.courses-select-container select {
-    width: 100%;
+    width: 90%;
 }
 
 .courses-container {

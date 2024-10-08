@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
-    <head class="Inter">
+    <head>
         <meta charset="UTF-8">
         <title>{% block title %}Bienvenue !{% endblock %}</title>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
         {% block stylesheets %}{% endblock %}
 
         {% block javascripts %}
@@ -10,19 +11,25 @@
         {% endblock %}
     </head>
 
-    <body class="Inter">
+    <body class="inter_font">
         {% block header %}
             <header>
-                <div class="formations_header">
-                    <img src="{{ asset('pictures/adrar-classrooms-logo.png') }}"/>
-                    <img src="{{ asset('pictures/classrooms-text.png') }}"/>
-                    <h4>Acceuil</h4>
-                    <h4>Formations</h4>
-                    <h4>Administration</h4>
-                    <img src="{{ asset('pictures/magnifying-glass-solid.png') }}"/>
-                    <h4>NOM PRENOM</h4>
-                    <img src="{{ asset('pictures/icon_account.png') }}"/>
-                </div>
+                <nav class="formations_navbar">
+                    <div>
+                        <img src="{{ asset('pictures/adrar-classrooms-logo.png') }}"/>
+                        <img src="{{ asset('pictures/classrooms-text.png') }}"/>
+                    </div>
+                    <div>
+                        <h4>Acceuil</h4>
+                        <h4>Formations</h4>
+                        <h4>Administration</h4>
+                    </div>
+                    <div>
+                        <img src="{{ asset('pictures/magnifying-glass-solid.png') }}"/>
+                        <h4>NOM PRENOM</h4>
+                        <img src="{{ asset('pictures/icon_account.png') }}"/>
+                    </div>
+                </nav>
             </header>
         {% endblock %}
         {% block body %}
@@ -30,10 +37,11 @@
         {% endblock %}
         {% block footer %}
             <footer>
-                <div class="formations_footer">
-                    <h4>2023 © ADRAR Classrooms. Tous droits réservés.</h4>
-                    <img src="{{ asset('pictures/bouton_footer.jpg') }}"/>
-                </div>
+                <h4>2023 © ADRAR Classrooms. Tous droits réservés.</h4>
+                <img src="{{ asset('pictures/bouton_footer.jpg') }}"/>
+                {# <div class="formations_footer">
+
+                </div> #}
             </footer>
         {% endblock %}
     </body>
