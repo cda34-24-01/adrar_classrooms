@@ -1,0 +1,8 @@
+body {
+    background-color: skyblue;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url(../../assets/fonts/inter.ttf);
+}
