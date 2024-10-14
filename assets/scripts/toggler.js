@@ -1,125 +1,82 @@
-
-// const iconPlus = document.querySelector('#icon_plus');
-// const iconbar = document.querySelector('#icon_bar');
-// const moreIcons = document.querySelector('#more-icons');
-// const icons = document.querySelectorAll('.icons');
-// const bar1 = document.querySelector('#bar_one');
-// const bar2 = document.querySelector('#bar_two');
-// const burger = document.querySelector('#burger');
-// const registered = document.querySelector('#registered');
-// const rBg = document.querySelector('#r-bg');
-// const background = document.querySelector('.background');
-
-
-// const searchBar = document.querySelector('.search-bar');
-// const search = document.querySelector('.search');
-// const textBar = document.querySelector('#hover-toggle');
-
-// const searchIcon = document.querySelector('#search-toggler');
-// const searchBar = document.querySelector('#search-bar');
-// const navList = document.querySelector('#nav');
-// const navLink = document.querySelectorAll('a');
-
-// const textBar = document.querySelector('#text-bar');
-// const fullBar = document.querySelector('.end-nav');
-// const btnUp = document.querySelector('.btn-up');
-// const rootElement = document.querySelector('.body');
-
-
-
-
-
-// let focused = false;
-
-// searchIcon.addEventListener('click', () => {
-//     // searchIcon.classList.toggle('clicked')
-//     fullBar.classList.toggle('on')
-//     searchBar.classList.toggle('clicked')
-//     textBar.classList.toggle('on')
-//     navList.classList.toggle('off')
-// })
+// Barre qui s'étend
 function unfold() {
     // searchIcon.classList.toggle('clicked')
     document.querySelector('.end-nav').classList.toggle('on')
+    document.querySelector('#search-input').classList.toggle('on')
     document.querySelector('#search-bar').classList.toggle('clicked')
-    document.querySelector('#text-bar').classList.toggle('on')
+    document.querySelector('.search-btn').classList.toggle('clicked')
+
+    // document.querySelector('#text-bar').classList.toggle('on')
     document.querySelector('#nav').classList.toggle('off')
 }
 
+// dynamic search
+const searchInput = document.querySelector('#search-input')
+const searchResult = document.querySelector('#suggestion-list')
 
+let dataArray;
+
+async function getLanguages(){
+    const res = await fetch("http://127.0.0.1:8001/api/languages?page=1")
+
+    const { member } = await res.json()
+    console.log(member)
+
+    dataArray = orderList(member)
+
+    // A mettre dans un event keyUp
+    
+    // A mettre dans un event keyUp
+}
+
+getLanguages();
+
+function orderList(data) {
+    const orderedData = data.sort((a,b) => {
+        if (a.title.toLowerCase() < b.title.toLowerCase()) return -1; return 0;
+    })
+
+    return orderedData;
+}
+
+function displaySuggestion(languagesList) {
+    languagesList.forEach(language => {
+        const listItem = document.createElement("li");
+        listItem.innerHTML = `<p>${language.title}</p>`
+        searchResult.appendChild(listItem);
+    });
+}
+
+searchInput.addEventListener('input', filterData)
+
+function filterData(e) {
+
+    searchResult.innerHTML = "";
+
+    const searchValue = e.target.value.toLowerCase();
+
+    if (searchValue === "") {
+        searchResult.innerHTML = ""; // Vider la liste si l'input est vide
+        return; // Sortir de la fonction
+    }
+
+    if (searchResult.length < 1) {
+        searchResult.classList.toggle('filled')
+    }
+
+    const filteredArr = dataArray.filter(el => el.title.toLowerCase().includes(searchValue));
+
+    
+
+    displaySuggestion(filteredArr)
+}
+
+// Scroll to top
 function toTop() {
     document.querySelector('.body').scrollTo({ top: 0, behavior: 'smooth' });
     console.log("test");
 }
 
-// navLink.forEach(l => {
-//     // this.classList.toggle('selected')
-//     console.log('test');
-    
-// });
-
-// searchBar.addEventListener('mouseover', () => {
-//     searchBar.classList.add('unfolded')
-//     textBar.classList.add('unfolded')
-//     searchIcon.classList.add('unfolded')
-// })
-
-// searchBar.addEventListener("mouseleave", () => {
-//     if (!focused) {
-//         searchBar.classList.remove('unfolded')
-//         textBar.classList.remove('unfolded')
-//         mapTarget.classList.remove('unfolded')
-//     }
-// });
-
-
-
 document.documentElement.scrollTop = 0;
 
 
-
-// searchBar.addEventListener('click', () => {
-//     focused = true;
-//     return;
-// })
-
-// search.addEventListener('focusout', () => {
-//     searchBar.classList.remove('unfolded')
-//     textBar.classList.remove('unfolded')
-//     mapTarget.classList.remove('unfolded')
-//     focused = false;
-// })
-
-
-// let deployed = false;  
-
-// iconPlus.addEventListener('click', () => {
-//     bar1.classList.toggle('rotated')
-//     bar2.classList.toggle('rotated2')
-//     moreIcons.classList.toggle('visible')
-//     console.log(icons.length)
-
-//     deploy();
-//     // for (i = 0; i < icons.length; i++) {
-//     //     setTimeout(deploy,5000)
-//     // }
-// })
-
-// burger.addEventListener('click', () => {
-//     console.log('test')
-// })
-
-// // function deploy() {
-// //     for (i=0; i<12; i++) {
-// //         let iconUnit = document.createElement('img');
-// //         iconUnit.src = `./assets/imgs/icons/more/${[i]}.svg`;
-// //         iconUnit.classList.add('icons');
-// //         iconbar.appendChild(iconUnit);
-// //     }
-// // }
-
-// function deploy() {
-//     icons.forEach(icon => {
-//         setInterval(icon.classList.toggle('visible'), 2000)
-//     });
-// }
