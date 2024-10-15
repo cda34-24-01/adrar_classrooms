@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
 :root {
-    --color: #556eac;
-    --color-dark: #44588a;
-    --color-light: #889ac5;
+    --color: #7496ED;
+    --color-dark: #6491D9;
+    --color-light: #7DA2FF;
 }
 
 
@@ -118,7 +118,7 @@ button {
     font-size: large;
     border: 2px var(--color) solid;
     border-radius: 5px;
-    color: white;
+    color: black;
     margin: 1em 0em;
 }
 

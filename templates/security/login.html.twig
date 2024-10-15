@@ -49,10 +49,10 @@
 <div class="pubStagiaire">
     <div class="texte">
         <p id="quote">
-            « J'étais musicien indépendant, mais la COVID a tout stoppé. On m’a parlé d’ADRAR Classrooms, ça m'a ouvert des opportunités professionnelles insoupçonnées. »
+            « {{ users[userPick].quote }} »
         </p>
         <p id="auteur">
-            Alexandre - Développeur Full-Stack Junior
+            {{ users[userPick].firstname }} {{ users[userPick].lastname }} - {{ users[userPick].emploi}}
         </p>
     </div>
     <img src="{{asset('imgs/portrait-connexion.png')}}" alt="">
