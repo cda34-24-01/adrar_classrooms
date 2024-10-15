@@ -9,17 +9,15 @@
     <div id="pubStagiaire">
         <div class="texte">
             <p id="quote">
-                « J'étais musicien indépendant, mais la COVID a tout stoppé. On m’a parlé d’ADRAR Classrooms, ça m'a ouvert des opportunités professionnelles insoupçonnées. »
+                « {{ users[userPick].quote }} »
             </p>
-            <p id="auteur">
-                Alexandre - Développeur Full-Stack Junior
-            </p>
+            <p id="auteur">{{ users[userPick].firstname }} {{ users[userPick].lastname }} - {{ users[userPick].emploi}}</p>
         </div>
-        <img src="{{asset('imgs/portrait-connexion.png')}}" alt="">
+        <img src="{{ asset(users[userPick].profilePictureLink) }}" alt="">
     </div>
     <div id="inscription">
         <img src="{{asset('imgs/adrar-classrooms-logo-blue.png')}}" alt="Logo d'adrar classrooms">
-
+        <hr>
         <h2>Inscription</h2>
 
     {{ form_errors(registrationForm) }}
@@ -44,6 +42,7 @@
 
         <button type="submit" class="btn">S'inscrire</button>
     {{ form_end(registrationForm) }}
+    <hr>
     <p>Si vous avez déjà un compte, vous pouvez vous <a href="{{ path('app_login') }}">Connecter</a></p>
 
     </div>
