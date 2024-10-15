@@ -36,7 +36,7 @@ header {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    background-color: darkred;
+    /* background-color: darkred; */
 }
 
 .formations_navbar div {
@@ -45,6 +45,7 @@ header {
     align-items: center;
     text-align: center;
     height: 100%;
+    width: 100%;
 }
 
 .formations_navbar div h4 {
@@ -56,6 +57,7 @@ header {
     /* height: 25%;
     width: 25%; */
     height: 100%;
+    width: 100%;
     margin: 0;
 }
 
@@ -63,7 +65,12 @@ header {
     /* height: 25%;
     width: 25%; */
     height: 25%;
+    width: 100%;
     margin: 0;
+}
+
+#loupe g path {
+    fill: white;
 }
 
 .formations_navbar div:nth-of-type(3) img:nth-of-type(2) {
@@ -80,15 +87,24 @@ header {
     color: white;
 }
 
+.formations_navbar div:nth-of-type(2) h4 {
+    font-size: 30px;
+}
+
+.formations_navbar div:nth-of-type(3) h4 {
+    font-size: 25px;
+}
+
 footer {
     /* height: 8%;
     width: 100vw;
     margin: 0; */
+
     grid-column: 1;
     grid-row: 3;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
     background-color: black;
 }
@@ -96,6 +112,7 @@ footer {
 footer h4 {
     color: white;
     margin-top: 2%;
+    font-size: 25px;
 }
 
 footer img {

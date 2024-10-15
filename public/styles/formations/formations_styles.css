@@ -16,6 +16,7 @@
 
 .courses-select-container h1 {
     color: white;
+    font-size: 30px;
 }
 
 .courses-select-container select {
@@ -23,6 +24,9 @@
     background-color: black;
     color: white;
     border: solid 2px white;
+    font-size: 30px;
+    background: url(pictures/chevron-up-solid.png) no-repeat right;
+    appearance: none;
 }
 
 .courses-select-container form {
@@ -83,6 +87,11 @@
 
 .info-course-container h1 {
     margin: 0;
+    font-size: 20px;
+}
+
+.header-course-container p, .description-course-container p {
+    font-size: 15px;
 }
 
 .header-course-container {

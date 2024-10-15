@@ -10,11 +10,11 @@
 
 {% block body %}
     <script>
-    const redirectToCoursePage = (card) => {
-        const courseId = card.getAttribute('data-id');
-        const url = `/cours/${courseId}`;
-        window.location.href = url;
-    }
+        const redirectToCoursePage = (card) => {
+            const courseId = card.getAttribute('data-id');
+            const url = `/cours/${courseId}`;
+            window.location.href = url;
+        }
     </script>
 
     <main class="main-container">
@@ -42,9 +42,17 @@
                         <h1>{{ course.title }}</h1>
 
                         <div class="header-course-container">
-                            <span class="material-symbols-outlined">signal_cellular_alt</span>
+                            {% if course.level == 'Beginner' %}
+                                <img src="{{ asset('pictures/signal-solid-level-easy.svg') }}" alt="Error Loading Pictures" />
+                            {% elseif course.level == 'Intermediate' %}
+                                <img src="{{ asset('pictures/signal-solid-level-medium.svg') }}" alt="Error Loading Pictures" />
+                            {% elseif course.level == 'Advanced' %}
+                                <img src="{{ asset('pictures/signal-solid-level-hard.svg') }}" alt="Error Loading Pictures" />
+                            {% else %}
+                                <img src="{{ asset('pictures/signal-solid.svg') }}" alt="Error Loading Pictures" />
+                            {% endif %}
                             <p>{{ course.level }}</p>
-                            <span class="material-symbols-outlined">schedule</span>
+                            <img src="{{ asset('pictures/clock-regular.svg') }}" alt="Error Loading Pictures" />
                             <p>{{ course.estimated_time }}</p>
                             <span class="material-symbols-outlined">stairs</span>
                             <p>{{ course.chapters|length }}</p>

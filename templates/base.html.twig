@@ -4,10 +4,10 @@
         <meta charset="UTF-8">
         <title>{% block title %}Bienvenue !{% endblock %}</title>
         <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="{{ asset('/styles/app.css') }}">
         {% block stylesheets %}{% endblock %}
 
         {% block javascripts %}
-            {% block importmap %}{{ importmap('app') }}{% endblock %}
         {% endblock %}
     </head>
 
@@ -16,8 +16,8 @@
             <header>
                 <nav class="formations_navbar">
                     <div>
-                        <img src="{{ asset('pictures/adrar-classrooms-logo.png') }}"/>
-                        <img src="{{ asset('pictures/classrooms-text.png') }}"/>
+                        <img src="{{ asset('pictures/adrar-classrooms-logo.png') }}" alt="Error Loading Pictures" />
+                        <img src="{{ asset('pictures/classrooms-text.png') }}" alt="Error Loading Pictures" />
                     </div>
                     <div>
                         <h4>Acceuil</h4>
@@ -25,9 +25,9 @@
                         <h4>Administration</h4>
                     </div>
                     <div>
-                        <img src="{{ asset('pictures/magnifying-glass-solid.png') }}"/>
+                        <img src="{{ asset('pictures/magnifying-glass-solid.svg') }}" alt="Error Loading Pictures" />
                         <h4>NOM PRENOM</h4>
-                        <img src="{{ asset('pictures/icon_account.png') }}"/>
+                        <img src="{{ asset('pictures/icon_account.png') }}" alt="Error Loading Pictures" />
                     </div>
                 </nav>
             </header>
@@ -38,10 +38,7 @@
         {% block footer %}
             <footer>
                 <h4>2023 © ADRAR Classrooms. Tous droits réservés.</h4>
-                <img src="{{ asset('pictures/bouton_footer.jpg') }}"/>
-                {# <div class="formations_footer">
-
-                </div> #}
+                <img src="{{ asset('pictures/bouton_footer.jpg') }}" alt="Error Loading Pictures" />
             </footer>
         {% endblock %}
     </body>
