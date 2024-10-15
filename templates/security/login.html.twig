@@ -55,7 +55,7 @@
             {{ users[userPick].firstname }} {{ users[userPick].lastname }} - {{ users[userPick].emploi}}
         </p>
     </div>
-    <img src="{{asset('imgs/portrait-connexion.png')}}" alt="">
+    <img src="{{ asset(users[userPick].profilePictureLink) }}" alt="">
 </div>
 {% endblock %}
 

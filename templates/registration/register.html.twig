@@ -11,11 +11,9 @@
             <p id="quote">
                 « {{ users[userPick].quote }} »
             </p>
-            <p id="auteur">
-               {{ users[userPick].firstname }} {{ users[userPick].lastname }} - {{ users[userPick].emploi}}
-            </p>
+            <p id="auteur">{{ users[userPick].firstname }} {{ users[userPick].lastname }} - {{ users[userPick].emploi}}</p>
         </div>
-        <img src="{{asset('imgs/portrait-connexion.png')}}" alt="">
+        <img src="{{ asset(users[userPick].profilePictureLink) }}" alt="">
     </div>
     <div id="inscription">
         <img src="{{asset('imgs/adrar-classrooms-logo-blue.png')}}" alt="Logo d'adrar classrooms">
