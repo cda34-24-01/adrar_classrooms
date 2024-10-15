@@ -22,7 +22,7 @@ class ChaptersFixtures extends Fixture implements DependentFixtureInterface
             $chapter->setTitle($faker->sentence(3));  // Titre du chapitre
             $chapter->setSubtitle($faker->sentence(10));  // Sous-titre
             $chapter->setContent($faker->sentence(10));  // Contenu
-            $chapter->setTotalTime($faker->numberBetween(10, 10000));  // Temps total en minutes
+            $chapter->setPosted($faker->boolean());  // posté
 
             // Associer aléatoirement un cours à un chapitre
             $courseReference = CoursesFixtures::COURSES_REFERENCE_TAG . rand(0, CoursesFixtures::COURSES_COUNT - 1);

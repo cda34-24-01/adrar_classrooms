@@ -1,0 +1,24 @@
+<turbo-frame id="chapter_content_frame">
+	<div class="chapter-content">
+		<div class="chapter_title">
+			<h2>Chapitre :
+				{{ chapter.title }}</h2>
+		</div>
+		<div class="chapter_inside">
+			<p>{{ chapter.content }}</p>
+			<p>{{ chapter.finished ? 'Chapitre terminé !' : 'En cours...' }}</p>
+		</div>
+
+		{% if chapter.finished === 0 %}
+			<form action="/chapters/{{ chapter.id }}/finished" method="POST" data-turbo-frame="chapter_content_frame">
+				<input type="hidden" name="_token" value="{{ csrf_token('finished_chapter' ~ chapter.id) }}">
+				<button type="submit" class="btn btn-tertiary">Chapitre terminé !</button>
+			</form>
+		{% else %}
+			<form action="/chapters/{{ chapter.id }}/finished" method="POST" data-turbo-frame="chapter_content_frame">
+				<input type="hidden" name="_token" value="{{ csrf_token('finished_chapter' ~ chapter.id) }}">
+				<button type="submit" class="btn btn-tertiary">Annuler le statut terminé</button>
+			</form>
+		{% endif %}
+	</div>
+</turbo-frame>

@@ -45,9 +45,6 @@ class CoursesController extends AbstractController
     public function show(Courses $course): Response
     {
         $chapters = $course->getChapters();
-        // echo "<pre>";
-        // var_dump($chapters);
-        // echo "</pre>";
 
         return $this->render('chapters/index.html.twig', [
             'course' => $course,

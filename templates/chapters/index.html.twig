@@ -5,9 +5,24 @@
 {% block body %}
 	<div class="chapters_progress">
 		<div class="chapter_header">
-			<div class="title">
-				<h1>Cours :
-					{{course.title}}</h1>
+			<div class="chapter_items">
+				<div class="title">
+					<h1>Cours :
+						{{course.title}}</h1>
+				</div>
+				<div class="info">
+					<div class="duration">
+						<i class="fa-regular fa-clock"></i>
+						Temps :
+						{{course.duration | date('H:i:s')}}</div>
+					<div class="publication_date">
+						<a href="{{course.pdf}}">
+							<i class="fa-regular fa-file-pdf fa-xl" style="color: #000000;"></i>
+						</a>
+						Date de publication :
+						{{course.createdAt|date('Y-m-d H:i:s')}}
+					</div>
+				</div>
 			</div>
 		</div>
 		<div class="chapter_single">
@@ -20,11 +35,12 @@
 	</div>
 
 	<turbo-frame id="chapter_content_frame">
-		<div
-			class="chapter_content">
-			<!-- Le contenu du chapitre sera chargé ici -->
-			<p>Bienvenue dans le cours
-				{{course.title}}</p>
+		<div class="chapter_content">
+			<div>
+				<!-- Le contenu du chapitre sera chargé ici -->
+				<p>Bienvenue dans le cours
+					{{course.title}}</p>
+			</div>
 		</div>
 	</turbo-frame>
 {% endblock %}

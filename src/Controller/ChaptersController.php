@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Chapters;
 use App\Entity\Courses;
 use App\Form\ChaptersType;
+use App\Form\UpdateFinishedType;
 use App\Repository\ChaptersRepository;
 use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
@@ -64,13 +65,33 @@ final class ChaptersController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->flush();
 
-            return $this->redirectToRoute('app_chapters_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('app_all_chapters', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->render('chapters/edit.html.twig', [
             'chapter' => $chapter,
             'form' => $form,
         ]);
+    }
+    #[Route('/{id}/finished', name: 'app_chapters_finished', methods: ['GET', 'POST'])]
+    public function finished(Request $request, Chapters $chapter, EntityManagerInterface $entityManager): Response
+    {
+        // Vérification du token CSRF
+        $submittedToken = $request->request->get('_token');
+        if (!$this->isCsrfTokenValid('finished_chapter' . $chapter->getId(), $submittedToken)) {
+            throw $this->createAccessDeniedException('Invalid CSRF token');
+        }
+
+        // Changer le statut de finished
+        ($chapter->isFinished() === true) ? $chapter->setFinished(false) : $chapter->setFinished(true);
+        $entityManager->flush();
+
+        if ($request->isXmlHttpRequest()) {
+            return $this->render('chapters/_chapter_content.html.twig', [
+                'chapter' => $chapter,
+            ]);
+        }
+        return $this->redirectToRoute('app_all_chapters');
     }
 
     #[Route('/{id}', name: 'app_chapters_delete', methods: ['POST'])]
@@ -81,6 +102,6 @@ final class ChaptersController extends AbstractController
             $entityManager->flush();
         }
 
-        return $this->redirectToRoute('app_chapters_index', [], Response::HTTP_SEE_OTHER);
+        return $this->redirectToRoute('app_all_chapters', [], Response::HTTP_SEE_OTHER);
     }
 }

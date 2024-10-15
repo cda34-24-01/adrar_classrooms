@@ -19,16 +19,37 @@ class ChaptersType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('title')
-            ->add('subtitle')
-            ->add('content')
+            ->add('title', null, [
+                'label' => 'Titre',
+                'attr' => ['class' => 'form-control', 'placeholder' => 'Titre du chapitre']
+            ])
+            ->add('subtitle', null, [
+                'label' => 'Sous-titre',
+                'attr' => ['class' => 'form-control', 'placeholder' => 'Sous-titre du chapitre']
+            ])
+            ->add('content', null, [
+                'label' => 'Contenu',
+                'attr' => ['class' => 'form-control', 'placeholder' => 'Contenu du chapitre']
+            ])
             ->add('course', EntityType::class, [
+                'label' => 'Cours associé',
                 'class' => Courses::class,
                 'choice_label' => 'title',
+                'attr' => ['class' => 'form-control']
             ])
             ->add('posted', CheckboxType::class, [
-                'label' => 'Mettre en ligne ?',
-                'required' => true,
+                'label' => 'poster?',
+                'attr' => [
+                    'class' => 'toggle-input',
+                    'id' => 'toggle'
+                ],
+                'required' => false,
+                'data' => $options['data']->isPosted(),
+            ])
+            ->add('finished', CheckboxType::class, [
+                'label' => 'validé?',
+                'required' => false,
+                'data' => $options['data']->isFinished()
             ]);
     }
 

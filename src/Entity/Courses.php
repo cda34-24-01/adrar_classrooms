@@ -29,6 +29,12 @@ class Courses
     #[ORM\OneToMany(targetEntity: Chapters::class, mappedBy: 'course')]
     private Collection $chapters;
 
+    #[ORM\Column(nullable: true)]
+    private ?int $duration = null;
+
+    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+    private ?\DateTimeInterface $createdAt = null;
+
     public function __construct()
     {
         $this->chapters = new ArrayCollection();
@@ -67,5 +73,29 @@ class Courses
     public function getChapters(): Collection
     {
         return $this->chapters;
+    }
+
+    public function getDuration(): ?int
+    {
+        return $this->duration;
+    }
+
+    public function setDuration(?int $duration): static
+    {
+        $this->duration = $duration;
+
+        return $this;
+    }
+
+    public function getCreatedAt(): ?\DateTimeInterface
+    {
+        return $this->createdAt;
+    }
+
+    public function setCreatedAt(\DateTimeInterface $createdAt): static
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
     }
 }

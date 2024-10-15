@@ -22,6 +22,8 @@ class CoursesFixtures extends Fixture
             $course = new Courses();
             $course->setTitle($faker->word(3));
             $course->setPdf($sentenceLink . 'pdf');
+            $course->setDuration($faker->numberBetween(0, 10000));
+            $course->setCreatedAt($faker->dateTime());
 
             $manager->persist($course);
 

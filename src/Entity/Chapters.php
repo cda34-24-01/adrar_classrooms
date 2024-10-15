@@ -27,14 +27,14 @@ class Chapters
     #[ORM\JoinColumn(nullable: false)]
     private ?Courses $course = null;
 
-    #[ORM\Column]
-    private ?int $totalTime = null;
-
     #[ORM\Column(nullable: true)]
     private ?\DateTime $postedAt = null;
 
     #[ORM\Column]
     private ?bool $posted = null;
+
+    #[ORM\Column]
+    private ?bool $finished = null;
 
     public function getId(): ?int
     {
@@ -89,17 +89,6 @@ class Chapters
         return $this;
     }
 
-    public function getTotalTime(): ?int
-    {
-        return $this->totalTime;
-    }
-
-    public function setTotalTime(int $totalTime): static
-    {
-        $this->totalTime = $totalTime;
-
-        return $this;
-    }
 
     public function getPostedAt(): ?\DateTimeInterface
     {
@@ -121,6 +110,18 @@ class Chapters
     public function setPosted(bool $posted): static
     {
         $this->posted = $posted;
+
+        return $this;
+    }
+
+    public function isFinished(): ?bool
+    {
+        return $this->finished;
+    }
+
+    public function setFinished(bool $finished): static
+    {
+        $this->finished = $finished;
 
         return $this;
     }
