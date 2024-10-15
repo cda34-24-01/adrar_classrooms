@@ -15,9 +15,7 @@ const searchInput = document.querySelector('#search-input')
 const searchResult = document.querySelector('#suggestion-list')
 
 let dataArray;
-let reviewArray;
-let userArray;
-let reviewList= [];
+
 
 async function getLanguages(){
     const res = await fetch("http://127.0.0.1:8001/api/languages?page=1")
@@ -28,33 +26,9 @@ async function getLanguages(){
     dataArray = orderList(member)
 }
 
-async function getReviews(){
-    const resReview = await fetch("http://127.0.0.1:8001/api/reviews?page=1")
 
-    const { member } = await resReview.json()
-    console.log(member)
-
-    reviewArray = member
-    console.log(reviewArray)
-
-}
-async function getUsers(){
-    const resUser = await fetch("http://127.0.0.1:8001/api/users?page=1")
-
-    const { member } = await resUser.json()
-    console.log(member)
-
-    userArray = member
-    console.log(userArray)
-
-}
 
 getLanguages();
-getReviews();
-getUsers();
-
-
-
 
 
 function orderList(data) {
@@ -73,53 +47,6 @@ function displaySuggestion(languagesList) {
     });
 }
 
-
-
-async function displayReviews(reviewList) {
-    console.log(reviewArray);
-
-    for (let i = 0; i < reviewArray.length; i++) {
-        async function getInfoReview(){
-            const getInfos = await fetch(`http://127.0.0.1:8001${reviewArray[i].user}`)
-
-            const userInfos = await getInfos.json()
-
-            userData = userInfos
-            console.log(userData.username);
-
-            let userName = userData.firstname
-            const reviewName = document.createElement("h4");
-            reviewName.innerText = `${userName}`
-            document.querySelector('.container-reviews').appendChild(reviewName);
-
-            let comment = reviewArray[i].content
-            let commentReview = document.createElement("p");
-            commentReview.innerText = `${comment}`
-            document.querySelector('.container-reviews').appendChild(commentReview);
-        }
-        getInfoReview()
-        
-    }
-    
-    // reviewArray.forEach(review => {
-    //     // const reviewAvatar = document.createElement("img")
-    //     // reviewAvatar.src = `${review.user}`
-    //     // async function getInfoReview(){
-    //     //     const getInfos = await fetch(`http://127.0.0.1:8001${review.user}`)
-
-    //     //     const userInfos = await getInfos.json()
-
-    //     //     userData = userInfos
-    //     //     console.log(userData.username);
-            
-    //     // }
-    //     // getInfoReview()
-        
-    //     // const reviewName = document.createElement("h4");
-    //     // reviewName.innerText = `${review.user}`
-    //     // document.querySelector('.container-reviews').appendChild(reviewName);
-    // });
-}
 
 searchInput.addEventListener('input', filterData)
 
@@ -143,7 +70,7 @@ function filterData(e) {
     
 
     displaySuggestion(filteredArr)
-    displayReviews()
+
 }
 
 // window.onload = displayReviews()

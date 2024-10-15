@@ -85,19 +85,20 @@
                     </div>
                 </div>
                 <div class="bloc-presentation caroussel">
-                    <h4>Témoignage & sourires</h4>
+
                     <div class="container-reviews">
-                        {# <div class="avatar">
+                                        <h4>Témoignage & sourires</h4>
+                        <div class="avatar">
                             <img src="{{ asset('imgs/avatar-test.png') }}" alt="">
                         </div>
-                        <h4 id="name" >Nom</h4>
-                        <p id="comment" class="content-text" >" Commentaire "</p> #}
-                    </div>
-                    <div class="caroussel-btns">
-                        <img src="{{ asset('imgs/buttons/prev.svg') }}" alt="">
-                        <img src="{{ asset('imgs/buttons/next.svg') }}" alt="">
+                        <h4 id="name" >{{ reviews[0].user }}</h4>
+                        <p id="comment" class="content-text" >{{ reviews[0].content }}</p>
                     </div>
                 </div>
+                    <div class="caroussel-btns">
+                        <img id="prevR" src="{{ asset('imgs/buttons/prev.svg') }}" alt="">
+                        <img id="nextR" src="{{ asset('imgs/buttons/next.svg') }}" alt="">
+                    </div>
                 <div class="bottom">
                     <p>2023 © ADRAR Classrooms. Tous droits réservés.</p>
                 <div onclick="toTop()" class="btn-up">
@@ -112,6 +113,7 @@
     </div>
 {% endblock %}
         {% block js %}
+            <script async src="{{ asset('scripts/slider.js') }}"></script>
             <script src="{{ asset('scripts/toggler.js') }}"></script>
         {% endblock %}
 {# {% block js %}

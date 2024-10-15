@@ -12,6 +12,7 @@
     padding: 0;
     margin: 0;
     font-family: "Inter";
+    
 }
 
 
@@ -19,6 +20,7 @@
 body {
     overflow: hidden;
     background-color: skyblue;
+
 }
 .container-main {
     width: 100%;
@@ -27,6 +29,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+    overflow: hidden;
 }
 
 /* La barre */ 
@@ -117,6 +120,10 @@ body {
     }
 
 /* Les blocs */
+
+.blocs {
+    overflow-x: hidden;
+}
 .bloc-presentation {
     width: 100%;
     height: 280px;
@@ -415,7 +422,6 @@ padding-bottom: 10px;
     display: flex;
     justify-content: center;
     flex-direction: column;
-    align-items: center;
     gap: 10px;
     padding-top: 20px;
 }
@@ -428,6 +434,17 @@ padding-bottom: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+}
+.container-reviews div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: center;
+    width: 100svw;
+    scroll-snap-align: start; */
 }
 .container-reviews>p {
     padding: 2px;
@@ -460,3 +477,5 @@ padding-bottom: 10px;
     padding-bottom: 15px;
 
 }
+
+;
