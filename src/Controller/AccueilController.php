@@ -74,18 +74,15 @@ class AccueilController extends AbstractController
         return $reviews;
     }
 
+
     #[Route('/accueil', name: 'app_accueil')]
     public function index(): Response
     {
-        $reviews = $this->getAllReviews();
-        $users = $this->getAllUsers();
-        
-        // Associe les utilisateurs aux avis
-        $reviewsWithUserNames = $this->mapReviewsToUsers($reviews, $users);
-
+        $reviews = $this->mapReviewsToUsers($this->getAllReviews(), $this->getAllUsers());
+    
         return $this->render('accueil/index.html.twig', [
             'controller_name' => 'AccueilController',
-            'reviews' => $reviewsWithUserNames,
+            'reviews' => $reviews,  // On passe bien TOUS les avis ici
         ]);
     }
 

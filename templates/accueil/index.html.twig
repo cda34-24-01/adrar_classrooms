@@ -22,7 +22,7 @@
             </div>
 
             <div id="nav" class="nav">
-                <a class="selected" href="/pagetest">Accueil</a>
+                <a class="selected" href="{{ path('app_accueil') }}">Accueil</a>
                 <a href="{{ path('app_accueil') }}">Formation</a>
                 <a href="{{ path('app_accueil') }}">Administration</a>
             </div>
@@ -87,12 +87,16 @@
                 <div class="bloc-presentation caroussel">
 
                     <div class="container-reviews">
-                                        <h4>Témoignage & sourires</h4>
-                        <div class="avatar">
-                            <img src="{{ asset('imgs/avatar-test.png') }}" alt="">
-                        </div>
-                    <h4 id="name">{{ reviews[0].user_name }}</h4> <!-- Affiche le prénom de l'utilisateur -->
-                    <p id="comment" class="content-text">{{ reviews[0].content }}</p>
+                        <h4>Témoignage & sourires</h4>
+                        {% for review in reviews %}
+                            <div class="review">
+                                <div class="avatar">
+                                    <img src="{{ asset('imgs/avatar-test.png') }}" alt="">
+                                </div>
+                                <h4>{{ review.user_name }}</h4>
+                                <p>{{ review.content }}</p>
+                            </div>
+                        {% endfor %}
                     </div>
                 </div>
                     <div class="caroussel-btns">
@@ -113,7 +117,7 @@
     </div>
 {% endblock %}
         {% block js %}
-            <script async src="{{ asset('scripts/slider.js') }}"></script>
+            <script src="{{ asset('scripts/slider.js') }}"></script>
             <script src="{{ asset('scripts/toggler.js') }}"></script>
         {% endblock %}
 {# {% block js %}

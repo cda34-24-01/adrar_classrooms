@@ -438,16 +438,16 @@ padding-bottom: 10px;
     gap: 20px;
     width: 100%;
 }
-.container-reviews div {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    /* align-items: center;
-    width: 100svw;
-    scroll-snap-align: start; */
-}
+
 .container-reviews>p {
     padding: 2px;
+}
+
+.review {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
 }
 
 
@@ -467,6 +467,9 @@ padding-bottom: 10px;
 
 .caroussel-btns {
     justify-content: center;
+    background-color: #5584AC;
+    align-items:center ;
+    height: fit-content;
     display: flex;
     width: 100%;
     gap: 15px;
@@ -475,6 +478,7 @@ padding-bottom: 10px;
 .caroussel-btns img {
     width: 30px;
     padding-bottom: 15px;
+    padding-top: 15px;
 
 }
 
