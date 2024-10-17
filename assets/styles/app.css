@@ -8,6 +8,10 @@ html {
     -webkit-box-sizing: inherit;
     -moz-box-sizing: inherit;
     box-sizing: inherit;
+    /* retirer le css mis par défaut par firefox */
+    margin: 0px;
+    padding: 0px;
+    /* insérer des règles pour les autres navigateur */
 }
 
 .inter_font {
