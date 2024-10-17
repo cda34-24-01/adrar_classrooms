@@ -21,7 +21,8 @@
 
         <div class="courses-select-container">
             <form method="get" action="{{ path('app_cours') }}">
-                <h1>Cours :</h1>
+                <h1>Cours</h1>
+
                 <select name="language" onchange="this.form.submit()">
                     <option value="">Langages</option>
                     {% for language in languages %}
