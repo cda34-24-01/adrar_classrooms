@@ -40,23 +40,30 @@
                     </div>
 
                     <div class="info-course-container">
+                        <h1>Cours</h1>
                         <h1>{{ course.title }}</h1>
 
                         <div class="header-course-container">
-                            {% if course.level == 'Beginner' %}
-                                <img src="{{ asset('pictures/signal-solid-level-easy.svg') }}" alt="Error Loading Pictures" />
-                            {% elseif course.level == 'Intermediate' %}
-                                <img src="{{ asset('pictures/signal-solid-level-medium.svg') }}" alt="Error Loading Pictures" />
-                            {% elseif course.level == 'Advanced' %}
-                                <img src="{{ asset('pictures/signal-solid-level-hard.svg') }}" alt="Error Loading Pictures" />
-                            {% else %}
-                                <img src="{{ asset('pictures/signal-solid.svg') }}" alt="Error Loading Pictures" />
-                            {% endif %}
-                            <p>{{ course.level }}</p>
-                            <img src="{{ asset('pictures/clock-regular.svg') }}" alt="Error Loading Pictures" />
-                            <p>{{ course.estimated_time }}</p>
-                            <span class="material-symbols-outlined">stairs</span>
-                            <p>{{ course.chapters|length }}</p>
+                            <div class="header-course-level-container">
+                                {% if course.level == 'Beginner' %}
+                                    <img src="{{ asset('pictures/signal-solid-level-easy.svg') }}" alt="Error Loading Pictures" />
+                                {% elseif course.level == 'Intermediate' %}
+                                    <img src="{{ asset('pictures/signal-solid-level-medium.svg') }}" alt="Error Loading Pictures" />
+                                {% elseif course.level == 'Advanced' %}
+                                    <img src="{{ asset('pictures/signal-solid-level-hard.svg') }}" alt="Error Loading Pictures" />
+                                {% else %}
+                                    <img src="{{ asset('pictures/signal-solid.svg') }}" alt="Error Loading Pictures" />
+                                {% endif %}
+                                <p>{{ course.level }}</p>
+                            </div>
+                            <div class="header-course-time-container">
+                                <img src="{{ asset('pictures/clock-regular.svg') }}" alt="Error Loading Pictures" />
+                                <p>{{ course.estimated_time }}</p>
+                            </div>
+                            <div class="header-course-chapters-container">
+                                <img src="{{ asset('pictures/chapiters-icon.svg') }}" alt="Error Loading Pictures" />
+                                <p>{{ course.chapters|length }}</p>
+                            </div>
                         </div>
 
                         <div class="description-course-container">
