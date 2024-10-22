@@ -55,19 +55,19 @@ class AccueilController extends AbstractController
     private function mapReviewsToUsers(array $reviews, array $users): array
     {
         foreach ($reviews as &$review) {
-            // Vérifie que la clé 'user' existe dans l'avis et extraire l'ID utilisateur depuis l'URI
+            // Si la clé 'user' existe, on la récup et on en extrait l'ID de l'utilisateur depuis l'URI
             if (isset($review['user'])) {
-                // Extraire l'ID utilisateur de l'URI (par exemple, "/api/users/2" devient "2")
+                // On extrait l'ID utilisateur de l'URI ("/api/users/2" => "2")
                 $userId = intval(basename($review['user']));
     
                 foreach ($users as $user) {
-                    if ($user['id'] === $userId) { // Compare l'ID utilisateur extrait avec l'ID des utilisateurs
-                        $review['user_name'] = $user['firstname']; // Ajoute le prénom de l'utilisateur à l'avis
+                    if ($user['id'] === $userId) { // Si l'ID utilisateur extrait == l'ID des utilisateurs
+                        $review['user_name'] = $user['firstname']; // On match le prénom de l'utilisateur à son avis
                         break;
                     }
                 }
             } else {
-                // Gère le cas où 'user' n'existe pas (par exemple, afficher "Utilisateur inconnu")
+                // Si jamais 'user' n'existe pas => "Utilisateur inconnu"
                 $review['user_name'] = 'Utilisateur inconnu';
             }
         }
@@ -82,7 +82,7 @@ class AccueilController extends AbstractController
     
         return $this->render('accueil/index.html.twig', [
             'controller_name' => 'AccueilController',
-            'reviews' => $reviews,  // On passe bien TOUS les avis ici
+            'reviews' => $reviews,  // On passe TOUS les avis ici
         ]);
     }
 

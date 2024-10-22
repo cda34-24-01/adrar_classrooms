@@ -57,8 +57,8 @@ function filterData(e) {
     const searchValue = e.target.value.toLowerCase();
 
     if (searchValue === "") {
-        searchResult.innerHTML = ""; // Vider la liste si l'input est vide
-        return; // Sortir de la fonction
+        searchResult.innerHTML = "";
+        return; 
     }
 
     if (searchResult.length < 1) {
@@ -72,10 +72,6 @@ function filterData(e) {
     displaySuggestion(filteredArr)
 
 }
-
-// window.onload = displayReviews()
-
-
 
 
 
